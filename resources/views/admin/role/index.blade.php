@@ -44,7 +44,7 @@
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
                     <td>
-                        <a class=" label label-danger radius  " href="#">权限</a>
+                        <a class=" label label-danger radius  " href="{{route('admin.role.node',$item)}}">权限</a>
                     </td>
                     <td>{{$item->created_at}}</td>
 

@@ -90,6 +90,10 @@ class RoleController extends BsesController
        Role::where('id',$id)->update($request->only(['name']));
         return ['status'=>0,'msg'=>'修改用户成功'];
     }
+    //给角色分配权限
+    public function node(Role $role){
+        dump($role);
+    }
 
     //删除操作
     public function destroy($id)

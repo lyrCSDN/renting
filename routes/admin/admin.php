@@ -26,8 +26,12 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::put('user/edit/{id}','UserController@update')->name('user.edit');
 
         // 权限路由
+        //分配权限
+        Route::get('role/nod/{role}','RoleController@node')->name('role.node');
         //资源路由
+
         Route::resource('role','RoleController');
+
 
         //节点管理  权限管理
         Route::resource('node','NodeController');
