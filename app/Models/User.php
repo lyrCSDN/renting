@@ -15,5 +15,9 @@ class User extends AuthUser
     //拒绝不添加的字段
     protected $guarded=[];
     protected $hidden=['password'];
+    //角色
+    public function role(){
+        return $this->belongsTo(Role::class,'role_id',);
+    }
 
 }

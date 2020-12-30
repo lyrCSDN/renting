@@ -24,10 +24,13 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::get('user/edit/{id}','UserController@edit')->name('user.edit');
         //修改用户处理
         Route::put('user/edit/{id}','UserController@update')->name('user.edit');
+        //给用户分配权限
+        Route::match(['get','post'],'user/role/{user}','UserController@role')->name('user.role');
 
         // 权限路由
         //分配权限
         Route::get('role/nod/{role}','RoleController@node')->name('role.node');
+        Route::post('role/nod/{role}','RoleController@nodeSave')->name('role.node');
         //资源路由
 
         Route::resource('role','RoleController');

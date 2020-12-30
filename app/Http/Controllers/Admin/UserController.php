@@ -2,6 +2,7 @@
 //后天用户管理
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\User;
 //验证加密的明文是否对应的
@@ -94,5 +95,26 @@ class UserController extends BsesController
        }
        return redirect(route('admin.user.edit',$model))->withErrors(['error'=>'原密码不正确']);
 
+    }
+    //分配角色和处理
+    public function role(Request $request,User $user){
+        //判断是否post提交
+        if($request->isMethod('post')) {
+//            dump($request->all());
+//        exit();
+            $post = $this->validate($request, [
+
+                'role_id' => 'required'
+            ], ['role_id.required' => '必须勾选']);
+            $user->update($post);
+            return redirect(route('admin.user.index'));
+        }
+
+
+
+
+        //读取所有角色
+        $roleAll=Role::all();
+        return view('admin.user.role',compact('user','roleAll'));
     }
 }

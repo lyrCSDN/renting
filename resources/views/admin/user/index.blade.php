@@ -45,15 +45,16 @@
             <thead>
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
-                <th width="80">ID</th>
+                <th width="30">ID</th>
                 <th width="100">真实名字</th>
                 <th width="40">用户名</th>
+                <th width="40">角色</th>
                 <th width="90">性别</th>
                 <th width="150">手机</th>
                 <th width="150">邮箱</th>
                 <th width="130">加入时间</th>
                 <th width="70">状态</th>
-                <th width="100">操作</th>
+                <th width="150">操作</th>
             </tr>
             </thead>
             <tbody>
@@ -67,8 +68,10 @@
                  </td>
 
                 <td>{{$item->id}}</td>
-                <td>{{$item->username}}</td>
                 <td>{{$item->truename}}</td>
+                <td>{{$item->username}}</td>
+                <td>{{$item->role->name}}</td>
+
                 <td>{{$item->gender}}</td>
                 <td>{{$item->phone}}</td>
                 <td>{{$item->email}}</td>
@@ -84,6 +87,7 @@
                         @endif
                     @endif
                     <a href="{{ route('admin.user.edit',$item) }}" class="label label-danger radius">修改</a>
+                        <a href="{{ route('admin.user.role',$item) }}" class="label label-danger radius">分配权限</a>
                 </td>
             </tr>
             @endforeach
