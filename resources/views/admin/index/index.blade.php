@@ -48,6 +48,13 @@
                     <li><a data-href="{{route('admin.node.index')}}" data-title="节点列表" href="javascript:void(0);">节点列表 </a></li>
                 </ul>
             </dd>
+         <dt><i class="Hui-iconfont">&#xe62d;</i> 文章管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+         <dd>
+             <ul>
+                 <li><a data-href="{{route('admin.article.index')}}" data-title="文章列表" href="javascript:void(0);">文章列表 </a></li>
+
+             </ul>
+         </dd>
         </dl>
     </div>
 </aside>

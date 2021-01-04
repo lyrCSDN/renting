@@ -39,6 +39,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         //节点管理  权限管理
         Route::resource('node','NodeController');
 
+        //文章管理
+        Route::resource('article','ArticleController');
+
     });
 //    Route::get('index','indexController@index')->name('admin.index');
 //    //oute::get('welcome','IndexController@welcome')->name('admin.welcome')->middleware(['checkAdmin']);
